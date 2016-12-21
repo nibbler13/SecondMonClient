@@ -4,5 +4,6 @@
 \\nnkk-fs\doks\nn-admin\мои документы\visual studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.csprojResolveAssemblyReference.cache
 \\nnkk-fs\doks\nn-admin\мои документы\visual studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.exe
 \\nnkk-fs\doks\nn-admin\мои документы\visual studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.pdb
-\\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.Form1.resources
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.csproj.GenerateResource.Cache
+\\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.Properties.Resources.resources
+\\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.popupMessage.resources
