@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Threading;
 using System.Drawing;
+using SecondMonServer;
 
 namespace SecondMonClient {
 	public partial class PopupMessage : Form, IMessageFilter {
@@ -17,27 +18,33 @@ namespace SecondMonClient {
 		public static extern bool ReleaseCapture();
 
 		private HashSet<Control> controlsToMove = new HashSet<Control>();
-		private Color colorMain;
-		private Color colorExclamation;
-		private int colorRSpeed;
-		private int colorGSpeed;
-		private int colorBSpeed;
 
+		private Color exclColor;
+		private Color mainColor;
+		private double diffColorHue;
+		private double diffColorSat;
+		private double diffColorVal;
+
+		private int stepsToChange = 30;
+		private int currentStep = 0;
 
 		public PopupMessage() {
 			Init();
 		}
 
-		public PopupMessage(string message) {
+		public PopupMessage(Notification notification) {
 			Init();
 
-			string[] values = message.Split('|');
-			labelTitle.Text = values[0];
-			labelMessage.Text = values[1];
-			labelMark.BackColor = System.Drawing.Color.FromArgb(Convert.ToInt32(values[2]));
-			labelTitle.BackColor = System.Drawing.Color.FromArgb(Convert.ToInt32(values[3]));
-			labelMessage.BackColor = System.Drawing.Color.FromArgb(Convert.ToInt32(values[3]));
-			buttonClose.BackColor = System.Drawing.Color.FromArgb(Convert.ToInt32(values[3]));
+			if (notification is null)
+				throw new ArgumentNullException("argument must be not null");
+
+			//string[] values = message.Split('|');
+			labelTitle.Text = notification.get_title();
+			labelMessage.Text = notification.get_body();
+			labelMark.BackColor = notification.get_main();
+			labelTitle.BackColor = notification.get_main();
+			labelMessage.BackColor = notification.get_main();
+			buttonClose.BackColor = notification.get_main();
 
 			buttonClose.Click += Form1_buttonClosed_Click;
 
@@ -51,11 +58,21 @@ namespace SecondMonClient {
 
 			Location = new System.Drawing.Point(screenWidth - Width - 20, screenHeight - Height - 20);
 
-			colorMain = labelMessage.BackColor;
-			colorExclamation = labelMark.BackColor;
-			colorRSpeed = (colorExclamation.R - colorMain.R) / 20;
-			colorGSpeed = (colorExclamation.G - colorMain.G) / 20;
-			colorBSpeed = (colorExclamation.B - colorMain.B) / 20;
+			exclColor = notification.get_exclamation();
+			
+			double mainColorHue;
+			double mainColorSat;
+			double mainColorVal;
+			double exclColorHue;
+			double exclColorSat;
+			double exclColorVal;
+
+			ColorToHSV(notification.get_main(), out mainColorHue, out mainColorSat, out mainColorVal);
+			ColorToHSV(notification.get_exclamation(), out exclColorHue, out exclColorSat, out exclColorVal);
+
+			diffColorHue = (exclColorHue - mainColorHue) / stepsToChange;
+			diffColorSat = (exclColorSat - mainColorSat) / stepsToChange;
+			diffColorVal = (exclColorVal - mainColorVal) / stepsToChange;
 
 			StartBlinking();
 		}
@@ -77,12 +94,36 @@ namespace SecondMonClient {
 		}
 
 		private void Timer_Tick(object sender, EventArgs e) {
-			if (labelMark.BackColor.R > colorExclamation.R &&
-				labelMark.BackColor.G > colorExclamation.R &&
-				labelMark.BackColor.B > colorExclamation.B) {
-				labelMark.BackColor = Color.FromArgb(labelMark.BackColor.R + colorRSpeed, labelMark.BackColor.G + colorGSpeed, labelMark.BackColor.B + colorBSpeed);
-			} else {
-				labelMark.BackColor = colorMain;
+			double curHue;
+			double curSat;
+			double curVal;
+			ColorToHSV(labelMark.BackColor, out curHue, out curSat, out curVal);
+
+			curHue += diffColorHue;
+			curSat += diffColorSat;
+			curVal += diffColorVal;
+
+			if (curHue < 0)
+				curHue = 0;
+			if (curHue > 360)
+				curHue = 360;
+			if (curSat < 0)
+				curSat = 0;
+			if (curSat > 1)
+				curSat = 1;
+			if (curVal < 0)
+				curVal = 0;
+			if (curVal > 1)
+				curVal = 1;
+
+			labelMark.BackColor = ColorFromHSV(curHue, curSat, curVal);
+
+			currentStep++;
+			if (currentStep == stepsToChange) {
+				diffColorHue *= -1;
+				diffColorSat *= -1;
+				diffColorVal *= -1;
+				currentStep = 0;
 			}
 		}
 
@@ -108,6 +149,39 @@ namespace SecondMonClient {
 			}
 
 			return false;
+		}
+
+		private static void ColorToHSV(Color color, out double hue, out double saturation, out double value) {
+			int max = Math.Max(color.R, Math.Max(color.G, color.B));
+			int min = Math.Min(color.R, Math.Min(color.G, color.B));
+
+			hue = color.GetHue();
+			saturation = (max == 0) ? 0 : 1d - (1d * min / max);
+			value = max / 255d;
+		}
+
+		private static Color ColorFromHSV(double hue, double saturation, double value) {
+			int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
+			double f = hue / 60 - Math.Floor(hue / 60);
+
+			value = value * 255;
+			int v = Convert.ToInt32(value);
+			int p = Convert.ToInt32(value * (1 - saturation));
+			int q = Convert.ToInt32(value * (1 - f * saturation));
+			int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
+
+			if (hi == 0)
+				return Color.FromArgb(255, v, t, p);
+			else if (hi == 1)
+				return Color.FromArgb(255, q, v, p);
+			else if (hi == 2)
+				return Color.FromArgb(255, p, v, t);
+			else if (hi == 3)
+				return Color.FromArgb(255, p, q, v);
+			else if (hi == 4)
+				return Color.FromArgb(255, t, p, v);
+			else
+				return Color.FromArgb(255, v, p, q);
 		}
 	}
 }

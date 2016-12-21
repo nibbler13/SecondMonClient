@@ -49,6 +49,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeserializationBinder.cs" />
+    <Compile Include="Notification.cs" />
     <Compile Include="PopupMessage.cs">
       <SubType>Form</SubType>
     </Compile>
