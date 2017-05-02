@@ -7,3 +7,5 @@
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.csproj.GenerateResource.Cache
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.Properties.Resources.resources
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1\obj\Debug\SecondMonClient.popupMessage.resources
+\\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+\\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\ConsoleApp1\ConsoleApp1\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb

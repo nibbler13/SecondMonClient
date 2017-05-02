@@ -2,9 +2,7 @@
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
-using System.Threading;
 using System.Drawing;
-using SecondMonServer;
 
 namespace SecondMonClient {
 	public partial class PopupMessage : Form, IMessageFilter {
@@ -18,9 +16,7 @@ namespace SecondMonClient {
 		public static extern bool ReleaseCapture();
 
 		private HashSet<Control> controlsToMove = new HashSet<Control>();
-
-		private Color exclColor;
-		private Color mainColor;
+		
 		private double diffColorHue;
 		private double diffColorSat;
 		private double diffColorVal;
@@ -32,19 +28,15 @@ namespace SecondMonClient {
 			Init();
 		}
 
-		public PopupMessage(Notification notification) {
+		public PopupMessage(string title, string text, Color colorExclamationBlinking, Color colorMain) {
 			Init();
-
-			if (notification is null)
-				throw new ArgumentNullException("argument must be not null");
-
-			//string[] values = message.Split('|');
-			labelTitle.Text = notification.get_title();
-			labelMessage.Text = notification.get_body();
-			labelMark.BackColor = notification.get_main();
-			labelTitle.BackColor = notification.get_main();
-			labelMessage.BackColor = notification.get_main();
-			buttonClose.BackColor = notification.get_main();
+			
+			labelTitle.Text = title;
+			labelMessage.Text = text;
+			labelMark.BackColor = colorMain;
+			labelTitle.BackColor = colorMain;
+			labelMessage.BackColor = colorMain;
+			buttonClose.BackColor = colorMain;
 
 			buttonClose.Click += Form1_buttonClosed_Click;
 
@@ -58,8 +50,6 @@ namespace SecondMonClient {
 
 			Location = new System.Drawing.Point(screenWidth - Width - 20, screenHeight - Height - 20);
 
-			exclColor = notification.get_exclamation();
-			
 			double mainColorHue;
 			double mainColorSat;
 			double mainColorVal;
@@ -67,8 +57,8 @@ namespace SecondMonClient {
 			double exclColorSat;
 			double exclColorVal;
 
-			ColorToHSV(notification.get_main(), out mainColorHue, out mainColorSat, out mainColorVal);
-			ColorToHSV(notification.get_exclamation(), out exclColorHue, out exclColorSat, out exclColorVal);
+			ColorToHSV(colorMain, out mainColorHue, out mainColorSat, out mainColorVal);
+			ColorToHSV(colorExclamationBlinking, out exclColorHue, out exclColorSat, out exclColorVal);
 
 			diffColorHue = (exclColorHue - mainColorHue) / stepsToChange;
 			diffColorSat = (exclColorSat - mainColorSat) / stepsToChange;
