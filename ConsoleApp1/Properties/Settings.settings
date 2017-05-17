@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="NOTIFICATION_BASE_IP_ADDRESS" Type="System.String" Scope="User">
-      <Value Profile="(Default)">172.16.166.12</Value>
+      <Value Profile="(Default)">172.16.127.2</Value>
     </Setting>
     <Setting Name="NOTIFICATION_BASE_NAME" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Temp\Notification.fdb</Value>
+      <Value Profile="(Default)">sretenka</Value>
     </Setting>
     <Setting Name="CYCLE_INTERVAL_IN_SEC" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>

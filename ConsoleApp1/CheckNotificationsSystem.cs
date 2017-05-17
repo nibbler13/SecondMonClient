@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace SecondMonClient {
 	class CheckNotificationsSystem {
 		private const string QUERY_NEW_NOTIFICATIONS =
-			"SELECT * FROM NOTIFICATIONS " +
+			"SELECT * FROM SECONDMONNOTIFICATIONS " +
 			"WHERE IPADDRESS = @ipaddress " +
 			"AND MISPID = @mispid " +
 			"AND STATUS = 0 " +
@@ -19,9 +19,9 @@ namespace SecondMonClient {
 			"and cast('now' as time) - cast(createdate as time) < 180";
 
 		private const string QUERY_UPDATE_STATUS =
-			"UPDATE NOTIFICATIONS " +
+			"UPDATE SECONDMONNOTIFICATIONS " +
 			"SET STATUS = 1 " +
-			"WHERE ID = @id";
+			"WHERE SMNOTEID = @smnoteid";
 
 		IPAddress[] ipAddresses;
 		FBClient notificationBase;
@@ -79,18 +79,20 @@ namespace SecondMonClient {
 			Console.WriteLine("--- ShowNotification");
 
 			try {
-				string id = row["ID"].ToString();
+				string id = row["SMNOTEID"].ToString();
 				string title = row["TITLE"].ToString();
 				string text = row["TEXT"].ToString();
 				Color colorExclamationBlinking = ColorTranslator.FromHtml("#" + row["COLOREXT"].ToString());
 				Color colorMain = ColorTranslator.FromHtml("#" + row["COLORMAIN"].ToString());
+				Color colorFont = ColorTranslator.FromHtml("#" + row["COLORFONT"].ToString());
 
 				Console.WriteLine("---id: " + id);
 				
 				Dictionary<string, string> parameters = new Dictionary<string, string>() {
-					{"@id", id}};
+					{"@smnoteid", id}};
 				Console.WriteLine("---updated: " + notificationBase.ExecuteUpdateQuery(QUERY_UPDATE_STATUS, parameters));
 
+				//color font
 				Thread thread = new Thread(() => CreatePopupMessage(title, text, colorExclamationBlinking, colorMain));
 				thread.Start();
 

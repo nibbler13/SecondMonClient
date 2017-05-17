@@ -1,0 +1,9 @@
+*.exe
+*.pdb
+*.dll
+*.exe
+*.cache
+*.exe
+*.cache
+ConsoleApp1/obj/Debug/SecondMonClient.pdb
+*.exe

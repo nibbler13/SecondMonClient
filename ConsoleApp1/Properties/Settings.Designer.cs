@@ -25,7 +25,7 @@ namespace SecondMonClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("172.16.166.12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("172.16.127.2")]
         public string NOTIFICATION_BASE_IP_ADDRESS {
             get {
                 return ((string)(this["NOTIFICATION_BASE_IP_ADDRESS"]));
@@ -37,7 +37,7 @@ namespace SecondMonClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Temp\\Notification.fdb")]
+        [global::System.Configuration.DefaultSettingValueAttribute("sretenka")]
         public string NOTIFICATION_BASE_NAME {
             get {
                 return ((string)(this["NOTIFICATION_BASE_NAME"]));
