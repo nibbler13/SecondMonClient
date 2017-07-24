@@ -20,3 +20,16 @@
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\SecondMonClient\ConsoleApp1\obj\Debug\SecondMonClient.csproj.GenerateResource.Cache
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\SecondMonClient\ConsoleApp1\obj\Debug\SecondMonClient.exe
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\SecondMonClient\ConsoleApp1\obj\Debug\SecondMonClient.pdb
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Debug\SecondMonClient.exe.config
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Debug\SecondMonClient.exe
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Debug\SecondMonClient.pdb
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Debug\FirebirdSql.Data.FirebirdClient.dll
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Debug\INIFileParser.dll
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Debug\FirebirdSql.Data.FirebirdClient.pdb
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Debug\INIFileParser.xml
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Debug\SecondMonClient.csprojResolveAssemblyReference.cache
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Debug\SecondMonClient.PopupMessage.resources
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Debug\SecondMonClient.Properties.Resources.resources
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Debug\SecondMonClient.csproj.GenerateResource.Cache
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Debug\SecondMonClient.exe
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Debug\SecondMonClient.pdb

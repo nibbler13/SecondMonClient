@@ -7,6 +7,8 @@ using System.Data;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using IniParser;
+using IniParser.Model;
 
 namespace SecondMonClient {
 	class CheckNotificationsSystem {
@@ -27,11 +29,9 @@ namespace SecondMonClient {
 		FBClient notificationBase;
 		PopupMessage rootMessage;
 	
-		public CheckNotificationsSystem() {
+		public CheckNotificationsSystem(string baseIpAddress, string baseName) {
 			ipAddresses = Dns.GetHostEntry(Dns.GetHostName()).AddressList;
-			notificationBase = new FBClient(
-				Properties.Settings.Default.NOTIFICATION_BASE_IP_ADDRESS, 
-				Properties.Settings.Default.NOTIFICATION_BASE_NAME);
+			notificationBase = new FBClient(baseIpAddress, baseName);
 			rootMessage = new PopupMessage();
 			rootMessage.Show();
 			rootMessage.Hide();
@@ -39,6 +39,7 @@ namespace SecondMonClient {
 
 		public void CheckNotifications() {
 			while (true) {
+				Console.WriteLine("CheckNotifications");
 				Thread.Sleep(Properties.Settings.Default.CYCLE_INTERVAL_IN_SEC * 1000);
 
 				Process[] runningMisProcesses = Process.GetProcessesByName("infoclinica");

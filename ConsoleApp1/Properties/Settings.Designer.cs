@@ -25,30 +25,6 @@ namespace SecondMonClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("172.16.127.2")]
-        public string NOTIFICATION_BASE_IP_ADDRESS {
-            get {
-                return ((string)(this["NOTIFICATION_BASE_IP_ADDRESS"]));
-            }
-            set {
-                this["NOTIFICATION_BASE_IP_ADDRESS"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sretenka")]
-        public string NOTIFICATION_BASE_NAME {
-            get {
-                return ((string)(this["NOTIFICATION_BASE_NAME"]));
-            }
-            set {
-                this["NOTIFICATION_BASE_NAME"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3")]
         public int CYCLE_INTERVAL_IN_SEC {
             get {

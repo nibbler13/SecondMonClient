@@ -7,3 +7,5 @@
 *.cache
 ConsoleApp1/obj/Debug/SecondMonClient.pdb
 *.exe
+*.exe
+*.config

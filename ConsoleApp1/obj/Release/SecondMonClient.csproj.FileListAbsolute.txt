@@ -9,3 +9,16 @@
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\SecondMonClient\ConsoleApp1\obj\Release\SecondMonClient.csproj.GenerateResource.Cache
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\SecondMonClient\ConsoleApp1\obj\Release\SecondMonClient.exe
 \\nnkk-fs\doks\nn-admin\Мои документы\Visual Studio 2017\Projects\SecondMonClient\ConsoleApp1\obj\Release\SecondMonClient.pdb
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Release\SecondMonClient.exe.config
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Release\SecondMonClient.exe
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Release\SecondMonClient.pdb
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Release\FirebirdSql.Data.FirebirdClient.dll
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Release\INIFileParser.dll
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Release\FirebirdSql.Data.FirebirdClient.pdb
+C:\_Projects C#\SecondMonClient\ConsoleApp1\bin\Release\INIFileParser.xml
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Release\SecondMonClient.csprojResolveAssemblyReference.cache
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Release\SecondMonClient.PopupMessage.resources
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Release\SecondMonClient.Properties.Resources.resources
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Release\SecondMonClient.csproj.GenerateResource.Cache
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Release\SecondMonClient.exe
+C:\_Projects C#\SecondMonClient\ConsoleApp1\obj\Release\SecondMonClient.pdb

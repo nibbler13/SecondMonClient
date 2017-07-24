@@ -2,12 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SecondMonClient.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="NOTIFICATION_BASE_IP_ADDRESS" Type="System.String" Scope="User">
-      <Value Profile="(Default)">172.16.127.2</Value>
-    </Setting>
-    <Setting Name="NOTIFICATION_BASE_NAME" Type="System.String" Scope="User">
-      <Value Profile="(Default)">sretenka</Value>
-    </Setting>
     <Setting Name="CYCLE_INTERVAL_IN_SEC" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>
     </Setting>
